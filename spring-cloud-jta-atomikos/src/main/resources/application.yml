@@ -1,0 +1,39 @@
+server:
+  port: 9028
+spring:
+  application:
+    name: jta-atomikos
+  datasource:
+    db1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/aq-elms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: 123456
+    db2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://59.203.218.244:3307/kettle_t_yu?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: Aqtest@123
+    db3:
+      driver-class-name: oracle.jdbc.OracleDriver
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+      username: WEB_XIZANG
+      password: WEB_XIZANG
+
+  jta:
+    transaction-manager-id: txManager
+    atomikos:
+      properties:
+        # 开启关闭日志打印
+        enable-logging: true
+        # 日志文件名称
+        log-base-name: atomikos
+        # 日志文件路径
+        log-base-dir: D:/log/jta-atomikos
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.example.springcloudjtaatomikos.entity

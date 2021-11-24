@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 42255c73-055a-42f8-90f8-49478fbb257f # \u547D\u540D\u7A7A\u95F4 \u4F18\u5148\u7EA7\u7B2C\u4E00
+        ext-config: # \u4F18\u5148\u7EA7\u7B2C\u4E8C
+          - data-id: nacos-version.properties
+            group: DEFAULT_GROUP # \u4E0D\u5199\u8BE5\u53C2\u6570\u9ED8\u8BA4\u5206\u7EC4
+            refresh: true # \u662F\u5426\u914D\u7F6E\u52A8\u6001\u5237\u65B0
+          - data-id: nacos-conf.properties
+            group: DEFAULT_GROUP
+            refresh: true
+#        \u8FD9\u79CD\u5F62\u5F0F\u53EA\u652F\u6301\u9ED8\u8BA4\u5206\u7EC4(\u524D\u9762\u6307\u5B9Agroup\u7684\u8BDD\uFF0C\u4E5F\u53EA\u662F\u7B2C\u4E00\u4E2A\u6587\u4EF6\uFF0C\u540E\u9762\u7684\u90FD\u662F\u9ED8\u8BA4\u5206\u7EC4) \u4F18\u5148\u7EA7\u6700\u4F4E
+#        shared-dataids: nacos-version.properties,nacos-conf.properties
+#        refreshable-dataids: nacos-version.properties,nacos-conf.properties
+
